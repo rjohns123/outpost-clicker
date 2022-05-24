@@ -1,0 +1,236 @@
+
+    body{
+        background: #cacceb
+    }
+
+    #resources{
+        padding: 8px;
+        float: top;
+        border: 5px solid black;
+        height: 110px;
+        width: 375px;
+        margin:5px;
+    }
+
+    #goldResource{
+        float: left;
+        text-align: center;
+        padding: 5px;
+        border: 5px solid black;
+        border-radius: 8px;
+        background-color: #ffff66;
+        width: 45px;
+        margin:5px;
+    }
+
+    #ironResource{
+        float: left;
+        text-align: center;
+        padding: 5px;
+        border: 5px solid black;
+        border-radius: 8px;
+        background-color: #b3b3cc;
+        width: 45px;
+        margin:5px;
+    }
+    #foodResource{
+        float: left;
+        text-align: center;
+        padding: 5px;
+        border: 5px solid black;
+        border-radius: 8px;
+        background-color: #49c071;
+        width: 45px;
+        margin:5px;
+    }
+    #stoneResource{
+        float: left;
+        text-align: center;
+        padding: 5px;
+        border: 5px solid black;
+        border-radius: 8px;
+        background-color: #999999;
+        width: 45px;
+        margin:5px;
+    }
+    #woodResource{
+        float: left;
+        text-align: center;
+        padding: 5px;
+        border: 5px solid black;
+        border-radius: 8px;
+        background-color: #86592d;
+        width: 45px;
+        margin:5px;
+    }
+    
+    #goldCount{
+        text-align: center;
+    }
+    #ironCount{
+        text-align: center;
+    }
+    #foodCount{
+        text-align: center;
+    }
+    #stoneCount{
+        text-align: center;
+    }
+    #woodCount{
+        text-align: center;
+    }
+
+    #buttonMine{
+        background-image: linear-gradient(to right, #737380 , #d1d139);
+        background-color: #b3b3cc;
+        border: none;
+        color: #f1f1f3;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width:235px;
+    }
+
+    #buttonFood{
+        background-color: #49c071;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width:235px;
+    }
+
+    #buttonStone{
+        background-color: #999999;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width:235px;
+    }
+
+    #buttonWood{
+        background-color: #86592d;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        width:235px;
+    }
+
+    #buttonAll{
+        display:block;
+        height: 300px;
+        width: 300px;
+        background-color: #b32727;
+        border-radius: 50%;
+        border: #e67c7c;
+        font-size: 50px;
+        color: #aaaaaa;
+        cursor: pointer;
+    }
+
+    #ironSell{
+        border: black;
+        border-width: 8px;
+        color: black;
+        background-color: #b8b974;
+        padding: 3px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        width: 230px;
+        margin: auto;
+    }
+    #foodSell{
+        border: black;
+        border-width: 8px;
+        color: black;
+        background-color: #b8b974;
+        padding: 3px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        width: 230px;
+        margin: auto;
+    }
+    #stoneSell{
+        border: black;
+        border-width: 8px;
+        color: black;
+        background-color: #b8b974;
+        padding: 3px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        width: 230px;
+        margin: auto;
+    }
+    #woodSell{
+        border: black;
+        border-width: 8px;
+        color: black;
+        background-color: #b8b974;
+        padding: 3px;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        width: 230px;
+        margin: auto;
+    }
+
+    #buildings{
+        float: left;
+        margin: 20px;
+    }
+
+    #mines{
+        float: left;
+        border: 5px solid black;
+        width: 500px;
+        height: 120px;
+    }
+
+    #farms{
+        float: right;
+        border: 5px solid black;
+        width: 500px;
+        height: 120px;
+    }
+
+    #quarry{
+        float: left;
+        border: 5px solid black;
+        width: 500px;
+        height: 120px;
+    }
+
+    #lumberyard{
+        float: right;
+        border: 5px solid black;
+        width: 500px;
+        height: 120px;
+    }

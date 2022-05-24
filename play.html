@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Outpost Clicker</title>
+  <meta name="author" content="Ryan Johns">
+
+  <link rel="stylesheet" href="style/styles.css">
+</head>
+
+<body>
+    <noscript>Please Enable Javascript to continue</noscript>
+    <div id="gameBody">
+        <div id="resources">
+            <div id="goldResource">
+                Gold<p id="goldCount"></p>
+            </div>
+            <div id="ironResource">
+                Iron<p id="ironCount"></p>
+            </div>
+            <div id="foodResource">
+                Food<p id="foodCount"></p>
+            </div>
+            <div id="stoneResource">
+                Stone<p id="stoneCount"></p>
+            </div>
+            <div id="woodResource">
+                Wood<p id="woodCount"></p>
+            </div>
+        </div>
+        <div id="buildings">
+            <div id="building-top">
+                <div id="mines">
+                    <button type="button" id="buttonMine" onClick="addMine()">Produce Iron and Gold</button>1 Iron per click. 0.2 Gold per click<br>
+                    <input type="text" id="ironSell" placeholder="0"><button type="button" id="buttonSellIron" onClick="sellIron()">Sell Iron</button> 50 Iron = 1 Gold<br>
+                    <button type="button" id="buttonMineUpgrade" onClick="upgradeMine()">Upgrade Mine</button><br><br>
+                </div>
+                <div id="farms">
+                    <button type="button" id="buttonFood" onClick="addFood()">Produce Food</button>1 Food per click<br>
+                    <input type="text" id="foodSell" placeholder="0"><button type="button" id="buttonSellFood" onClick="sellFood()">Sell Food</button> 50 Food = 1 Gold<br>
+                    <button type="button" id="buttonFoodUpgrade" onClick="upgradeFood()">Upgrade Food</button><br><br>
+                </div>
+            </div>
+            <div id="building-bottom">
+                <div id="quarry">
+                    <button type="button" id="buttonStone" onClick="addStone()">Produce Stone</button>1 Stone per click<br>
+                    <input type="text" id="stoneSell" placeholder="0"><button type="button" id="buttonSellStone" onClick="sellStone()">Sell Stone</button> 50 Stone = 1 Gold<br>
+                    <button type="button" id="buttonStoneUpgrade" onClick="upgradeStone()">Upgrade Stone</button><br><br>
+                </div>
+                <div id="lumberyard">
+                    <button type="button" id="buttonWood" onClick="addWood()">Produce Wood</button>1 Wood per click<br>
+                    <input type="text" id="woodSell" placeholder="0"><button type="button" id="buttonSellWood" onClick="sellWood()">Sell Wood</button> 50 Wood = 1 Gold<br>
+                    <button type="button" id="buttonWoodUpgrade" onClick="upgradeWood()">Upgrade Wood</button><br><br>
+                </div>
+            </div>
+            <div id="generateAll">
+                <button type="button" id="buttonAll" onClick="addAll()">Produce All</button><p style="float:left;"> 0.2 per click except Gold</p>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    const ironCount = document.getElementById("ironCount");
+    const goldCount = document.getElementById("goldCount");
+
+    const foodCount = document.getElementById("foodCount");
+
+    const stoneCount = document.getElementById("stoneCount");
+
+    const woodCount = document.getElementById("woodCount");
+
+    var ironAmount = 0;
+    var goldAmount = 0;
+
+    var foodAmount = 0;
+
+    var stoneAmount = 0;
+
+    var woodAmount = 0;
+
+    var ironUpgrade = 0.5;
+    var goldUpgrade = 0.5;
+    var foodUpgrade = 0.5;
+    var stoneUpgrade = 0.5;
+    var woodUpgrade = 0.5;
+
+    var timeUpgrade = 1;
+
+    ironCount.innerHTML = ironAmount;
+    goldCount.innerHTML = goldAmount;
+
+    foodCount.innerHTML = foodAmount;
+
+    stoneCount.innerHTML = stoneAmount;
+
+    woodCount.innerHTML = woodAmount;
+
+    let autoTimer = setInterval(autoMine, (timeUpgrade * 1000));
+
+    function addMine(){
+        ironAmount++;
+        goldAmount = goldAmount + 0.2;
+        ironCount.innerHTML = Math.floor(ironAmount);
+        goldCount.innerHTML = Math.floor(goldAmount);
+    }
+
+    function addFood(){
+        foodAmount = foodAmount + foodUpgrade;
+        foodCount.innerHTML = Math.floor(foodAmount);
+    }
+
+    function addStone(){
+        stoneAmount++;
+        stoneCount.innerHTML = Math.floor(stoneAmount);
+    }
+
+    function addWood(){
+        woodAmount++;
+        woodCount.innerHTML = Math.floor(woodAmount);
+    }
+
+    function addAll(){
+        ironAmount = ironAmount + 0.2;
+        foodAmount = foodAmount + 0.2;
+        stoneAmount = stoneAmount + 0.2;
+        woodAmount = woodAmount + 0.2;
+        ironCount.innerHTML = Math.floor(ironAmount);
+        foodCount.innerHTML = Math.floor(foodAmount);
+        stoneCount.innerHTML = Math.floor(stoneAmount);
+        woodCount.innerHTML = Math.floor(woodAmount);
+    }
+
+    function autoMine(){
+        ironAmount = ironAmount + ironUpgrade;
+        foodAmount = foodAmount + foodUpgrade;
+        stoneAmount = stoneAmount + stoneUpgrade;
+        woodAmount = woodAmount + woodUpgrade;
+        ironCount.innerHTML = Math.floor(ironAmount);
+        foodCount.innerHTML = Math.floor(foodAmount);
+        stoneCount.innerHTML = Math.floor(stoneAmount);
+        woodCount.innerHTML = Math.floor(woodAmount);
+    }
+
+    function sellIron(){
+        var ironSell = document.getElementById("ironSell").value;
+        var goldSell = 0;
+        if(ironSell <= ironAmount && ironAmount >= 1 && ironSell >= 1){
+            ironAmount = ironAmount - ironSell;
+            goldSell = .02 * ironSell;
+            goldAmount += goldSell;
+            ironCount.innerHTML = Math.floor(ironAmount);
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+
+    function sellFood(){
+        var foodSell = document.getElementById("foodSell").value;
+        var goldSell = 0;
+        if(foodSell <= foodAmount && foodAmount >= 1 && foodSell >= 1){
+            foodAmount = foodAmount - foodSell;
+            goldSell = .02 * foodSell;
+            goldAmount += goldSell;
+            foodCount.innerHTML = Math.floor(foodAmount);
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+
+    function sellStone(){
+        var stoneSell = document.getElementById("stoneSell").value;
+        var goldSell = 0;
+        if(stoneSell <= stoneAmount && stoneAmount >= 1 && stoneSell >= 1){
+            stoneAmount = stoneAmount - stoneSell;
+            goldSell = .02 * stoneSell;
+            goldAmount += goldSell;
+            stoneCount.innerHTML = Math.floor(stoneAmount);
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+
+    function sellWood(){
+        var woodSell = document.getElementById("woodSell").value;
+        var goldSell = 0;
+        if(woodSell <= woodAmount && woodAmount >= 1 && woodSell >= 1){
+            woodAmount = woodAmount - woodSell;
+            goldSell = .02 * woodSell;
+            goldAmount += goldSell;
+            woodCount.innerHTML = Math.floor(woodAmount);
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+
+    function upgradeMine(){
+        if(goldAmount >= (ironUpgrade * 500)){
+            goldAmount = goldAmount - (ironUpgrade * 500);
+            ironUpgrade = ironUpgrade + 0.1;
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+
+    function upgradeFood(){
+        if(goldAmount >= (foodUpgrade * 500)){
+            goldAmount = goldAmount - (foodUpgrade * 500);
+            foodUpgrade = foodUpgrade + 0.1;
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+
+    function upgradeStone(){
+        if(goldAmount >= (stoneUpgrade * 500)){
+            goldAmount = goldAmount - (stoneUpgrade * 500);
+            stoneUpgrade = stoneUpgrade + 0.1;
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+
+    function upgradeWood(){
+        if(goldAmount >= (woodUpgrade * 500)){
+            goldAmount = goldAmount - (woodUpgrade * 500);
+            woodUpgrade = woodUpgrade + 0.1;
+            goldCount.innerHTML = Math.floor(goldAmount);
+        }
+    }
+</script>
+</body>
+</html>
